@@ -52,6 +52,10 @@
                     <th class="text-right"><?= 'Rp '.number_format($total)?></th>
                 </tr>
                 <tr>
+                    <th colspan="6">Total Berat</th>
+                    <th class="text-right"><?= number_format($total_berat) .' kg'?></th>
+                </tr>
+                <tr>
                     <th colspan="6">Biaya Pengiriman</th>
                     <th class="text-right"><?= 'Rp '.number_format($biaya_ongkir)?></th>
                 </tr>

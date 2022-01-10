@@ -8,7 +8,7 @@
     <div class="d-sm-flex flex-column align-items-center justify-content-center">
         <div class="success mt-5 text-center">
             <i class="fas fa-check-circle fa-7x text-success"></i>
-            <h3 class="mt-3">Thank you for your purchase!</h3>
+            <h3 class="mt-3">Thank you for your purchase in shoveneer!</h3>
             <p>Wait for the package coming to your home.</p>
         </div>
         <a href="<?= route_to('toko')?>">

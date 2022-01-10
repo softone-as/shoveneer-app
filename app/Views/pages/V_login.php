@@ -37,6 +37,10 @@
                 <form action="/C_Login/auth" method="POST">
                     <?= csrf_field(); ?>                
                     <div class="form-group">
+                        <label for="no_anggota" class="form-label">No Anggota</label>
+                        <input type="input" name="no_anggota" class="form-control"/>
+                    </div>
+                    <div class="form-group">
                         <label for="username" class="form-label">Username</label>
                         <input type="input" name="username" class="form-control"/>
                     </div>
@@ -48,10 +52,6 @@
                         Login
                     </button>
                 </form>
-                <div class="register text-center mt-2">
-                    <p>or</p>
-                    <a href="<?= route_to('register')?>" class="link-info">Register</a>
-                </div>
             </div>
         </div>
     </div>

@@ -30,9 +30,9 @@
             <div class="row">
             <?php foreach ($res as $item) : ?>
                 <div class="col-md-3 mb-4">
-                    <div class="thumbnail">
-                        <img width="100%" src="<?php echo base_url().'/assets/images/'.$item->gambar;?>">
-                        <div class="caption">
+                    <div class="thumbnail d-flex flex-column justify-content-between" style="height: 500px">
+                        <img width="100%" src="<?php echo base_url().'/assets/images/'.$item->gambar;?>" class="h-70">
+                        <div class="caption h-30">
                             <h6 class="text-center mt-2"><?php echo $item->nama_produk;?></h6>
                             <div class="row">
                                 <div class="col-md-12 align-items-center">
@@ -53,24 +53,6 @@
             </div>
  
         </div>
-        <!-- <div class="col-md-4">
-            <h4>Shopping Cart</h4>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Produk</th>
-                        <th>Harga</th>
-                        <th>Qty</th>
-                        <th>Subtotal</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="detail_cart">
- 
-                </tbody>
-                 
-            </table>
-        </div> -->
     </div>
 </div>
 

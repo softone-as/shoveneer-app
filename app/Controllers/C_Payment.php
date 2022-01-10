@@ -86,6 +86,7 @@ class C_Payment extends BaseController
 
                 $data['cart'] = array_values(unserialize($this->session->get('cart')));
                 $data['total'] = $this->total();
+                $data['total_berat'] = $this->totalBerat();
                 $data['biaya_ongkir'] = $this->totalBerat() * $ongkir;
                 $data['total_pembayaran'] = $data['total'] + $data['biaya_ongkir'];
 
@@ -126,6 +127,10 @@ class C_Payment extends BaseController
             $total_berat = floor($total_berat);
         }else{
             $total_berat = ceil($total_berat);
+        }
+
+        if(round($total_berat) == 0){
+            $total_berat = 1 ;
         }
         
         return $total_berat;

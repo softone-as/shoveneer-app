@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'db_toko',
+        'database' => 'db_souvenir',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

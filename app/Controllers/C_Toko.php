@@ -6,7 +6,7 @@ use Config\Services;
 
 class C_Toko extends BaseController
 {
-    protected $kota;
+    protected $toko;
  
     function __construct()
     {
@@ -32,57 +32,65 @@ class C_Toko extends BaseController
         echo view('pages/admin/V_Produk', $data);
     }
 
+    public function admin()
+    {
+       
+        $data = array(
+            'res' => $this->toko->getAllData(),
+        );
+
+        echo view('pages/admin/V_Produk_Admin', $data);
+    }
+
     public function home()
     {
         return view('pages/admin/V_Home');
     }    
 
-    // public function detail($id)
-    // {
-    //     $data = [
-    //         'id' => $id,
-    //         'title' => 'Detail Kota',
-    //         'res' => $this->kota->find($id)
-    //     ];
+    public function inputData()
+    {
+        $data = array(
+            'error' => false
+        );
+        return view('pages/admin/V_Produk_Input', $data);
+    }
 
-    //     return view('pages/admin/V_Detail_Kota', $data);
-    // }
+    public function create()
+    {
+        $validation =  \Config\Services::validation();
 
-    // public function inputData()
-    // {
-    //     $data = array(
-    //         'error' => false
-    //     );
-    //     return view('pages/admin/V_kota_input', $data);
-    // }
-
-    // public function create()
-    // {
-    //     $validation =  \Config\Services::validation();
-
-    //     $validation->setRules([
-    //         'nama_kota' => 'required',
-    //         'jumlah_penduduk' => 'required|numeric',
-    //     ]);
+        $validation->setRules([
+            'id_produk' => 'required',
+            'nama_produk' => 'required',
+            'harga' => 'required|numeric',
+            'berat' => 'required|numeric',
+            'jumlah_stok' => 'required|numeric',
+            // 'gambar' => 'required',
+        ]);
         
-    //     $isDataValid = $validation->withRequest($this->request)->run();
+        $isDataValid = $validation->withRequest($this->request)->run();
 
-    //     if($isDataValid){
-    //         $this->kota->insert([
-    //             'nama_kota' => $this->request->getPost('nama_kota'),
-    //             'jumlah_penduduk' => $this->request->getPost('jumlah_penduduk'),
-    //             'image' => $this->request->getFile('image')->getName(),
-    //         ]);
-    //         $this->request->getFile('image')->move('assets/images');
-    //         return redirect('kota')->with('success', 'Data Added Succesfully');
-    //     }else{
-    //         $data = array(
-    //             'error' => true
-    //         );
-    //         return view('pages/admin/V_kota_input', $data);
-    //     }
+        $produk = [
+            'id_produk' => $this->request->getPost('id_produk'),
+            'nama_produk' => $this->request->getPost('nama_produk'),
+            'harga' => $this->request->getPost('harga'),
+            'gambar' => $this->request->getFile('gambar')->getName(),
+            'berat' => $this->request->getPost('berat'),
+            'jumlah_stok' => $this->request->getPost('jumlah_stok'),
+        ];
 
-    // }
+        if($isDataValid){
+            $this->toko->insert($produk);
+            $this->request->getFile('gambar')->move('assets/images');
+            return redirect('admin')->with('success', 'Data Added Succesfully');
+        }else{
+            $data = array(
+                'error' => true
+            );
+            return view('pages/admin/V_Produk_Input', $data);
+        }
+
+    }
 
     // public function delete($id = 0){        
         

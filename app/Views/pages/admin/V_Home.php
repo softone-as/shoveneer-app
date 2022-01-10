@@ -5,14 +5,13 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Home</h1>
+    <div class="d-sm-flex flex-column align-items-center justify-content-center" style="height: 80vh;">
+        <h1 class="h2 mb-0 text-gray-800">Home</h1>
+        <span>Welcome to <strong>shoveneer</strong>!</span>
+        <p>You never see souvenir as beautiful as in shoveneer.</p>
     </div>
-    <span>Welcome to tokekpedia!</span>
 
-    <div class="logo text-center">
-        <img src="assets/images/logo-tokekpedia.png" alt="logo">
-    </div>
+
     
 </div>
 <!-- /.container-fluid -->

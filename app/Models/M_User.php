@@ -5,7 +5,7 @@
     class M_User extends Model
     {
         protected $table = 'user';
-        protected $primaryKey = 'id';
+        protected $primaryKey = 'no_anggota';
 
         protected $useAutoIncrement = true;
         protected $allowedFields = ['username', 'password'];

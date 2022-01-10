@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tokekpedia</title>
+    <title>Shoveneer</title>
 
     <?= $this->include('includes/admin/style'); ?>
     
@@ -20,16 +20,17 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
+    <?php if(session()->get('logged_in')) { ?>
     <?= $this->include('includes/admin/sidebar'); ?>
-
+    <?php }?>
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
             <div id="content">
-            <header class="bg-white topbar mb-4 static-top shadow text-center ">
+            <!-- <header class="bg-white topbar mb-4 static-top shadow text-center ">
                 <h3 class="pt-3">Header</h3>
-            </header>
+            </header> -->
 
             <?= $this->include('includes/admin/navbar'); ?>
 

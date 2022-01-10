@@ -17,24 +17,18 @@
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav align-items-center ml-auto">
-       <!-- <?php if(session()->get('logged_in')) { ?>
-        <form action="" method="get">
-            <div class="input-group">
-                <input type="text" name="keyword" class="form-control" placeholder="Search">
-                <button type="submit" class="input-group-text">
-                    <i class="fa fa-search"></i>    
-                </button>
-            </div>
-        </form>
-        <?php } ?> -->
-        <li>
-            <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> -->
-            <a href="<?= route_to('toko/cart')?>">
-                <i class="fa fa-shopping-cart"></i>
-            </a>
-                    
-            <!-- </button> -->
-        </li>
+        <?php if(session()->get('logged_in')) { ?>
+        
+        <?php }else { ?>
+            <li>
+                <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> -->
+                <a href="<?= route_to('toko/cart')?>">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+                        
+                <!-- </button> -->
+            </li>
+        <?php } ?> 
         <div class="topbar-divider d-none d-sm-block"></div>
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">

@@ -21,6 +21,7 @@ class C_Login extends BaseController
     public function auth()
     {
         $session = session();
+        $username = $this->request->getPost('no_anggota');
         $username = $this->request->getPost('username');
         $password = md5($this->request->getPost('password'));
         $data = $this->user->where('username', $username)->first();
@@ -29,13 +30,13 @@ class C_Login extends BaseController
             // dd($pass, $password);
             if($password == $pass){
                 $ses_data = [
-                    'id'       => $data['id_user'],
+                    'no_anggota'       => $data['no_anggota'],
                     'username'     => $data['username'],
                     'password'    => $data['password'],
                     'logged_in'     => TRUE
                 ];
                 $session->set($ses_data);
-                return redirect()->to('/kota');
+                return redirect()->to('/admin');
             }else{
                 $session->setFlashdata('error', 'Wrong Password');
                 return redirect()->to('/login');

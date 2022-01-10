@@ -35,14 +35,13 @@ $routes->add('/', 'C_Toko::home');
 
 $routes->get('/login', 'C_Login::index');
 $routes->get('/logout', 'C_Login::logout');
-$routes->get('/register', 'C_Login::register');
 
-$routes->group('file', function ($routes) {
-    $routes->add('/', 'C_FileIO::index');
+$routes->group('admin', function ($routes,) {
+    $routes->add('/', 'C_Toko::admin', ['filter' => 'auth']);
+    $routes->add('input-data', 'C_Toko::inputData'); 
 });
 
 $routes->group('toko', function ($routes) {
-    // $routes->add('/', 'C_Toko::index', ['filter' => 'auth']);
     $routes->add('/', 'C_Toko::index');
     $routes->add('cart', 'C_Cart::index');
     $routes->add('add-cart/(:segment)', 'C_Cart::addToShoppingCart/$1');

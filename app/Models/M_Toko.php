@@ -8,7 +8,7 @@
         protected $primaryKey = 'id_produk';
 
         protected $useAutoIncrement = true;
-        protected $allowedFields = ['nama_produk', 'detail_produk', 'jumlah_stok'];
+        protected $allowedFields = ['id_produk', 'nama_produk', 'harga', 'gambar', 'berat', 'jumlah_stok'];
 
         public function getAllData()
         {
